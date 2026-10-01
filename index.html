@@ -273,7 +273,79 @@
 
     });
 
-</script>
+</<script>
+  function selectAmount(amount) {
+    document.getElementById("loanAmount").value =
+      "K" + amount.toLocaleString();
+  }
+
+  document.getElementById("loanForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const data = {
+      name: document.getElementById("name").value,
+      phone: document.getElementById("phone").value,
+      amount: document.getElementById("loanAmount").value,
+      purpose: document.getElementById("purpose").value
+    };
+
+    try {
+      const response = await fetch("/.netlify/functions/send-telegram", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        document.getElementById("loanForm").style.display = "none";
+        document.getElementById("success").style.display = "block";
+      } else {
+        alert("Application could not be submitted. Please try again.");
+      }
+
+    } catch (error) {
+      alert("Connection error. Please try again.");
+    }
+  });
+</<script>
+  function selectAmount(amount) {
+    document.getElementById("loanAmount").value =
+      "K" + amount.toLocaleString();
+  }
+
+  document.getElementById("loanForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const data = {
+      name: document.getElementById("name").value,
+      phone: document.getElementById("phone").value,
+      amount: document.getElementById("loanAmount").value,
+      purpose: document.getElementById("purpose").value
+    };
+
+    try {
+      const response = await fetch("/.netlify/functions/send-telegram", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        document.getElementById("loanForm").style.display = "none";
+        document.getElementById("success").style.display = "block";
+      } else {
+        alert("Application could not be submitted. Please try again.");
+      }
+
+    } catch (error) {
+      alert("Connection error. Please try again.");
+    }
+  });
+</script>>
 
 </body>
   </html>
