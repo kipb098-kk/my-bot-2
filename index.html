@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Zambia Loan Services</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: #ffcc00;
+      padding: 18px 20px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 25px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .amounts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .amount {
+      padding: 15px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      background: white;
+      cursor: pointer;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .amount:hover {
+      border-color: #ffcc00;
+      background: #fff8cc;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 7px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 25px;
+      border: none;
+      border-radius: 9px;
+      background: #ffcc00;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e6b800;
+    }
+
+    .notice {
+      margin-top: 20px;
+      padding: 12px;
+      background: #fff8cc;
+      border-radius: 8px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    #success {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      margin-top: 20px;
+      background: #e8f5e9;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  Zambia Loan Services
+</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <h1>Apply for a Loan</h1>
+
+    <p class="subtitle">
+      Select your preferred loan amount and complete the application.
+    </p>
+
+    <div class="amounts">
+
+      <div class="amount" onclick="selectAmount(500)">
+        K500
+      </div>
+
+      <div class="amount" onclick="selectAmount(1000)">
+        K1,000
+      </div>
+
+      <div class="amount" onclick="selectAmount(2000)">
+        K2,000
+      </div>
+
+      <div class="amount" onclick="selectAmount(5000)">
+        K5,000
+      </div>
+
+    </div>
+
+    <form id="loanForm">
+
+      <label>Selected amount</label>
+
+      <input
+        type="text"
+        id="loanAmount"
+        placeholder="Select an amount above"
+        readonly
+        required
+      >
+
+      <label>Full name</label>
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your full name"
+        required
+      >
+
+      <label>Phone number</label>
+
+      <input
+        type="tel"
+        id="phone"
+        placeholder="e.g. 097XXXXXXX"
+        required
+      >
+
+      <label>Loan purpose</label>
+
+      <select id="purpose" required>
+
+        <option value="">
+          Select purpose
+        </option>
+
+        <option>
+          Business
+        </option>
+
+        <option>
+          Education
+        </option>
+
+        <option>
+          Emergency
+        </option>
+
+        <option>
+          Personal
+        </option>
+
+        <option>
+          Other
+        </option>
+
+      </select>
+
+      <button type="submit">
+        Submit Application
+      </button>
+
+    </form>
+
+    <div id="success">
+      <h3>Application Received</h3>
+
+      <p>
+        Your application has been submitted successfully.
+      </p>
+    </div>
+
+    <div class="notice">
+      This website is an independent loan-service template.
+      Do not enter your mobile-money PIN, OTP, password, or banking
+      credentials into this form.
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Zambia Loan Services
+</footer>
+
+<script>
+
+  function selectAmount(amount) {
+    document.getElementById("loanAmount").value =
+      "K" + amount.toLocaleString();
+  }
+
+  document
+    .getElementById("loanForm")
+    .addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      document.getElementById("success").style.display = "block";
+
+      document.getElementById("loanForm").style.display = "none";
+
+    });
+
+</script>
+
+</body>
+  </html>
